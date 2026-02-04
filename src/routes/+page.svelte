@@ -1,16 +1,16 @@
 <script lang="ts">
 	import Footer from './footer/footer.svelte';
 
-	let PlatformInformation = $state('');
-	let LanguageInformation = $state('');
-	let VersionInformation = $state('');
-	let NameInformation = $state('');
-	let ScreenResolutionInformation = $state('');
-	let ScreenWidthInformation = $state();
-	let ScreenHeightInformation = $state();
-	let NetworkStatusInformation = $state('');
-	let TimezoneInformation = $state('');
-	let LocalTimeInformation = $state('');
+	let PlatformInformation = $state<string>('');
+	let LanguageInformation = $state<string>('');
+	let VersionInformation = $state<string>('');
+	let NameInformation = $state<string>('');
+	let ScreenResolutionInformation = $state<string>('');
+	let ScreenWidthInformation = $state<number>(0);
+	let ScreenHeightInformation = $state<number>(0);
+	let NetworkStatusInformation = $state<string>('');
+	let TimezoneInformation = $state<string>('');
+	let LocalTimeInformation = $state<string>('');
 
 	const GenerateInformation = () => {
 		PlatformInformation = navigator.platform;
@@ -39,8 +39,8 @@
 		VersionInformation = '';
 		NameInformation = '';
 		ScreenResolutionInformation = '';
-		ScreenWidthInformation = '';
-		ScreenHeightInformation = '';
+		ScreenWidthInformation = 0;
+		ScreenHeightInformation = 0;
 		NetworkStatusInformation = '';
 		TimezoneInformation = '';
 		LocalTimeInformation = '';
@@ -48,9 +48,7 @@
 </script>
 
 <section class="bg-gray-100 min-h-screen flex flex-col gap-5 relative">
-	<h1 class="text-2xl font-bold text-center py-6 text-gray-200 bg-gray-700">
-		System Administration and Maintenance (Project)
-	</h1>
+	<h1 class="text-2xl font-bold text-center py-6 text-gray-200 bg-gray-700">(Project)</h1>
 	<div
 		class="border p-5 flex flex-col gap-5 rounded-md shadow-lg sm:max-w-200 sm:w-100 max-w-200 relative w-80 mr-auto ml-auto"
 	>
