@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import Footer from './footer/footer.svelte';
 
 	let PlatformInformation = $state<string>('');
@@ -13,9 +14,9 @@
 	let LocalTimeInformation = $state<string>('');
 
 	const GenerateInformation = () => {
-		PlatformInformation = navigator.platform;
+		PlatformInformation = navigator.userAgentData?.platform || 'unknown';
 		LanguageInformation = navigator.language;
-		VersionInformation = navigator.appVersion;
+		VersionInformation = navigator.userAgent;
 		NameInformation = navigator.appName;
 		ScreenResolutionInformation = `${window.screen.width} x ${window.screen.height}`;
 		ScreenWidthInformation = window.innerWidth;
@@ -48,7 +49,9 @@
 </script>
 
 <section class="bg-gray-100 min-h-screen flex flex-col gap-5 relative">
-	<h1 class="text-2xl font-bold text-center py-6 text-gray-200 bg-gray-700">(Project)</h1>
+	<h1 class="text-2xl font-bold text-center py-6 text-gray-200 bg-gray-700">
+		(System Information Project)
+	</h1>
 	<div
 		class="border p-5 flex flex-col gap-5 rounded-md shadow-lg sm:max-w-200 sm:w-100 max-w-200 relative w-80 mr-auto ml-auto"
 	>
